@@ -1,0 +1,125 @@
+/*
+   abyss.css v2.0.0
+   credit: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_reboot.scss
+   credit: https://github.com/suitcss/base/
+*/
+
+/* Fonts + margins */
+body,
+::-webkit-file-upload-button,
+button,
+input,
+select,
+optgroup,
+textarea {
+  font: 1em/1.5 var(--font, system-ui), sans-serif; /* System fonts + good line height */
+  margin: 0; /* No margins */
+}
+
+body {
+  -webkit-text-size-adjust: 100%; /* No IOS font size changes */
+  box-size: border-box; /* People are probably gonna do it anyways -.- */
+  text-align: left;
+}
+
+/* God forgive me */
+*, :before, :after {
+  box-size: inherit;
+}
+
+/* Responsive media */
+audio,
+embed,
+iframe,
+img,
+svg,
+object,
+video {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* Safari fixes */
+::-webkit-file-upload-button,
+::-webkit-search-cancel-button,
+::-webkit-search-decoration,
+[type=text],
+[type=reset],
+[type=button],
+[type=search],
+button {
+  -webkit-appearance: none;
+}
+
+[type="date"],
+[type="time"],
+[type="datetime-local"],
+[type="month"] {
+  -webkit-appearance: listbox;
+}
+
+/* Firefox button fix */
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+/* Make transparent buttons work */
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/* normal font weight and standard margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+  margin: 0 0 2rem 0;
+}
+
+/* hr fix for firefox & edge */
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+/* Don't affect the line height! */
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub { bottom: -.25em; }
+sup { top: -.5em; }
+
+/* Tables take up less space */
+table {
+  border-collapse: collapse;
+}
+
+/* Follow behaviour of td */
+th {
+  text-align: inherit;
+}
+
+/* No outlines on things that don't need outlines */
+[tabindex="-1"] {
+  outline: 0;
+}
+
+/* Make sure stuff actually hides */
+[hidden],
+template {
+  display: none !important;
+}

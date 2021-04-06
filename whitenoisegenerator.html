@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>White Noise Generator</title>
+</head>
+<body>
+<script src="https://cdn.rawgit.com/zhuker/lamejs/bfb7f6c6/lame.min.js"></script>
+<script>
+function genNoise() {
+
+time = document.getElementById('length').value;
+channels = 1; //1 for mono or 2 for stereo
+sampleRate = 44100; //44.1khz (normal mp3 samplerate)
+kbps = 128; //encode 128kbps mp3
+mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, kbps);
+var mp3Data = [];
+
+samples = new Int16Array(44100 * time); //one second of silence (get your data from the source you have)
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+for (var x = 0; x < samples.length; x++) {
+  samples[x] = getRandomInt(-32768,32767);
+}
+
+sampleBlockSize = 1152; //can be anything but make it a multiple of 576 to make encoders life easier
+
+for (var i = 0; i < samples.length; i += sampleBlockSize) {
+  sampleChunk = samples.subarray(i, i + sampleBlockSize);
+  var mp3buf = mp3encoder.encodeBuffer(sampleChunk);
+  if (mp3buf.length > 0) {
+      mp3Data.push(mp3buf);
+  }
+}
+var mp3buf = mp3encoder.flush();   //finish writing mp3
+
+if (mp3buf.length > 0) {
+    mp3Data.push(new Int8Array(mp3buf));
+}
+
+var blob = new Blob(mp3Data, {type: 'audio/mp3'});
+var url = window.URL.createObjectURL(blob);
+console.log('MP3 URl: ', url);
+document.getElementById("audio").src=url;
+
+}
+</script>
+<label for="length">Seconds of noise:</label>
+<input type="number" id="length">
+<div>
+  <button onclick="genNoise()">Start</button>
+</div>
+<audio id="audio" controls></audio>
+</body>
+</html>

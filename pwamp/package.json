@@ -1,0 +1,27 @@
+{
+  "name": "pwamp-starter",
+  "version": "0.1.0",
+  "description": "A PWAMP starter kit."
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run build:*",
+    "build:dir": "mkdir -p dist/{js,css}",
+    "build:lint": "eslint src/js",
+    "build:js": "babili src/js -d dist/js"
+  },
+  "keywords": [
+    "PWA",
+    "AMP",
+    "HTML5",
+    "Service Worker",
+    "Boilerplate",
+    "Starter Kit"
+  ],
+  "author": "Edward",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "eslint": "^4.4.1",
+    "babili": "^0.1.4"
+  }
+}

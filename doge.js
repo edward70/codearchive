@@ -1,0 +1,1 @@
+console.log('%c ', 'background-image: url(https://media.tenor.co/images/8fbda6a13aee444e0397f07541d1f98e/raw); padding: 235px 245px; line-height: 498px');

@@ -1,0 +1,29 @@
+{
+  "name": "cat_pic_bot",
+  "version": "1.0.0",
+  "description": "A discord bot that gives cat pics!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "now": {
+    "name": "cat-pic-bot",
+    "alias": [
+      "cat-pic-bot.now.sh"
+    ]
+  },
+  "keywords": [
+    "cat",
+    "discord",
+    "pic"
+  ],
+  "author": "Edward",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "express": "^4.16.3",
+    "mustache": "^3.0.0",
+    "mustache-express": "^1.2.7",
+    "request": "^2.88.0"
+  }
+}
