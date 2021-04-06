@@ -1,0 +1,17 @@
+# This file is a template, and might need editing before it works on your project.
+# Full project: https://gitlab.com/pages/plain-html
+image: node:latest
+pages:
+  stage: deploy
+  script:
+  - npm install
+  - npm install -g preact-cli
+  - npm run build
+  - mkdir .public
+  - cp -r /build .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
